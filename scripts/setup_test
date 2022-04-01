@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# trap "exit" INT TERM ERR
+# trap "kill 0" EXIT
+
+
+epmd -daemon
+# iex -S mix
+
+
+nohup elixir --cookie 1 --sname node1 -S mix run --no-halt &
+nohup elixir --cookie 1 --sname node2 -S mix run --no-halt &
+nohup elixir --cookie 1 --sname node3 -S mix run --no-halt &
+
+# iex --cookie 1 --sname node3 -S mix run
+
+# wait
+echo "testing"

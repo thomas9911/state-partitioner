@@ -1,0 +1,3 @@
+#! /bin/bash
+
+pgrep --list-full beam.smp | grep node | awk '{print $1}' | xargs kill
